@@ -33,10 +33,10 @@ func (cli *CLI) Run(args []string) int {
 	flags.SetOutput(cli.errStream)
 
 	flags.StringVar(&command, "command", "", "Convert command")
-	flags.StringVar(&command, "c", "", "Convert command(Short)")
+	flags.StringVar(&command, "c", "", "Convert command (Short)")
 
-	flags.StringVar(&format, "format", "", "Image file format")
-	flags.StringVar(&format, "f", "", "Image file format(Short)")
+	flags.StringVar(&format, "format", "jpg", "Image file format")
+	flags.StringVar(&format, "f", "jpg", "Image file format (Short)")
 
 	flags.BoolVar(&version, "version", false, "Print version information and quit.")
 
