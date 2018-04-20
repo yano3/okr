@@ -1,9 +1,12 @@
 package main
 
 import (
+	"crypto/sha1"
 	"flag"
 	"fmt"
 	"io"
+	"os"
+	"strings"
 )
 
 // Exit codes are int values that represent an exit code for a particular error.
@@ -57,6 +60,32 @@ func (cli *CLI) Run(args []string) int {
 		return ExitCodeError
 	}
 	originalURL := parsedArgs[0]
+
+	okaraHost := os.Getenv("OKARA_HOST")
+	okaraService := os.Getenv("OKARA_SERVICE")
+	okaraType := os.Getenv("OKARA_TYPE")
+	okaraToken := os.Getenv("OKARA_SECRET_TOKEN")
+
+	isHTTPS := strings.HasPrefix(originalURL, "https://")
+
+	originalURL = strings.TrimPrefix(originalURL, "https://")
+	originalURL = strings.TrimPrefix(originalURL, "http://")
+
+	if isHTTPS {
+		originalURL = "s/" + originalURL
+	}
+
+	text := okaraToken + okaraService + okaraType + command + format + originalURL
+
+	h := sha1.New()
+	h.Write([]byte(text))
+	bs := h.Sum(nil)
+
+	signedParam := fmt.Sprintf("%x", bs)
+
+	okaraURL := fmt.Sprintf("https://%s/%s/%s/%s/%s.%s/%s", okaraHost, okaraService, okaraType, command, signedParam, format, originalURL)
+
+	fmt.Println(okaraURL)
 
 	_ = command
 
