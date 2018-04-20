@@ -83,7 +83,7 @@ func (cli *CLI) Run(args []string) int {
 
 	signedParam := fmt.Sprintf("%x", bs)
 
-	okaraURL := fmt.Sprintf("https://%s/%s/%s/%s/%s.%s/%s", okaraHost, okaraService, okaraType, command, signedParam, format, originalURL)
+	okaraURL := fmt.Sprintf("%s/%s/%s/%s/%s.%s/%s", okaraHost, okaraService, okaraType, command, signedParam, format, originalURL)
 
 	fmt.Println(okaraURL)
 
