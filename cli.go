@@ -87,11 +87,5 @@ func (cli *CLI) Run(args []string) int {
 
 	fmt.Println(okaraURL)
 
-	_ = command
-
-	_ = format
-
-	_ = originalURL
-
 	return ExitCodeOK
 }
