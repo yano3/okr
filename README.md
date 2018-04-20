@@ -21,7 +21,7 @@ $ go get -u github.com/yano3/okr
 Set environment variables bellow.
 
 ```
-export OKARA_HOST=<Put your okara host name>
+export OKARA_HOST=<Put your okara host beginning with "http" or "https">
 export OKARA_SERVICE=<Put your service>
 export OKARA_TYPE=<Put your type>
 export OKARA_SECRET_TOKEN=<Put your okara secret token>
