@@ -56,7 +56,7 @@ func (cli *CLI) Run(args []string) int {
 
 	parsedArgs := flags.Args()
 	if len(parsedArgs) != 1 {
-		fmt.Println("Invalid argument: Specify original image URL.")
+		fmt.Fprintln(cli.errStream, "Invalid argument: Specify original image URL.")
 		return ExitCodeError
 	}
 	originalURL := parsedArgs[0]
