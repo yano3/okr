@@ -66,6 +66,14 @@ func (cli *CLI) Run(args []string) int {
 	okaraType := os.Getenv("OKARA_TYPE")
 	okaraToken := os.Getenv("OKARA_SECRET_TOKEN")
 
+	okaraURL := buildURL(okaraHost, okaraService, okaraType, okaraToken, command, format, originalURL)
+	fmt.Println(okaraURL)
+
+	return ExitCodeOK
+}
+
+func buildURL(okaraHost string, okaraService string, okaraType string, okaraToken string, command string, format string, originalURL string) string {
+
 	isHTTPS := strings.HasPrefix(originalURL, "https://")
 
 	originalURL = strings.TrimPrefix(originalURL, "https://")
@@ -83,9 +91,7 @@ func (cli *CLI) Run(args []string) int {
 
 	signedParam := fmt.Sprintf("%x", bs)
 
-	okaraURL := fmt.Sprintf("%s/%s/%s/%s/%s.%s/%s", okaraHost, okaraService, okaraType, command, signedParam, format, originalURL)
+	url := fmt.Sprintf("%s/%s/%s/%s/%s.%s/%s", okaraHost, okaraService, okaraType, command, signedParam, format, originalURL)
 
-	fmt.Println(okaraURL)
-
-	return ExitCodeOK
+	return url
 }
