@@ -10,6 +10,17 @@ $ okr -c 300x200c -f webp https://example.com/path/to/your/image.jpg
 
 ## Installation
 
+### macOS
+
+If you use [Homebrew](https://brew.sh):
+
+```
+brew tap yano3/okr
+brew install okr
+```
+
+### Other platforms
+
 Download binary from [releases page](https://github.com/yano3/okr/releases) or use `go get` command.
 
 ```console
