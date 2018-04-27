@@ -1,4 +1,7 @@
-# okr [![CircleCI](https://circleci.com/gh/yano3/okr.svg?style=shield)](https://circleci.com/gh/yano3/okr)
+# okr
+
+[![GitHub release](https://img.shields.io/github/release/yano3/okr.svg)](https://github.com/yano3/okr/releases)
+[![CircleCI](https://circleci.com/gh/yano3/okr.svg?style=shield)](https://circleci.com/gh/yano3/okr)
 
 Build okara URL with cli.
 
