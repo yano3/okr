@@ -4,4 +4,4 @@ package main
 const Name string = "okr"
 
 // Version is application version
-const Version string = "0.1.1"
+const Version string = "0.1.2"
